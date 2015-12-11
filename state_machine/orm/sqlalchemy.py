@@ -14,7 +14,7 @@ from state_machine.orm.base import BaseAdaptor
 
 class SqlAlchemyAdaptor(BaseAdaptor):
     def extra_class_members(self, initial_state):
-        return {'aasm_state': sqlalchemy.Column(sqlalchemy.String)}
+        return {'aasm_state': sqlalchemy.Column(sqlalchemy.String(256))}
 
     def update(self, document, state_name):
         document.aasm_state = state_name
